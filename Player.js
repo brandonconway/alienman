@@ -18,6 +18,7 @@ BasicGame.Player = function(game, positionX, positionY, playerSprite) {
 	 this.jump_sound = this.game.add.audio('jump');
 	 this.die_sound = this.game.add.audio('die');
          this.cursors = this.game.input.keyboard.createCursorKeys();
+         this.jumpButton = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 	 this.events.onOutOfBounds.add(function(){
 		 this.alive = false;
                  this.die_sound.play();
@@ -31,6 +32,7 @@ BasicGame.Player.prototype = Object.create(Phaser.Sprite.prototype);
 BasicGame.Player.prototype.constructor = BasicGame.Player;
 
 BasicGame.Player.prototype.update = function () {
+
 	if(this.cursors.right.isDown && this.alive){
                 this.scale.x = 1; //facing default direction
 		this.body.velocity.x = 150;
@@ -45,7 +47,7 @@ BasicGame.Player.prototype.update = function () {
     	           this.animations.play('right');
 		}
         }
-	if(this.cursors.up.isDown  && this.body.onFloor() && this.alive){
+	if(this.jumpButton.isDown && this.body.onFloor() && this.alive){
                 this.animations.stop();
 	        this.frame = 6;
                 this.body.velocity.y -= 500;
@@ -62,4 +64,25 @@ BasicGame.Player.prototype.update = function () {
                 this.animations.stop();
 	        this.frame = 5;
 	}
+}
+
+
+BasicGame.Player.prototype.die = function() {
+    if(this.alive){ 
+       this.die_sound.play();
+       this.alive = false;
+       this.body.velocity.x = 0;
+       this.animations.stop();
+       this.frame = 9
+       this.lives -=1;
+   }
+    if(this.lives > 0){
+		    var pos = this.x; 
+	            this.game.time.events.add(800, function(){
+				        this.alive = true;
+				        this.reset(pos, 0);
+                                        this.frame = 5; }, 
+                                    this);
+		 
+		 }
 }

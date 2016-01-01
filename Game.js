@@ -113,32 +113,17 @@ BasicGame.Game.prototype = {
     },
 
     deathHandler: function(){
-		 this.player.body.velocity.x = 0;
-                 this.player.animations.stop();
-		 this.player.frame = 9;
-		 if(this.player.alive){ 
-                        this.player.die_sound.play();
-			this.game.stage.backgroundColor = '#DDDDDD';
-			this.player.lives -=1;
-		        this.player.alive = false;
-                 }
+                 this.player.die();
 		 if(this.player.lives == 0){
 		         this.mainMusic.stop();
 			 this.gameText.visible = true;
 			 this.time.events.add(1500, this.quitGame, this);
 		 }
 		 else {
-		    var pos = this.player.x; 
 	            this.score = 0;
 		    this.livesText.text = 'Lives: '+ this.player.lives;
 		    this.scoreText.text = 'Score: '+ this.score;
-	            this.time.events.add(800, function(){
-						 this.player.alive = true;
-						 this.player.reset(pos, 0);
-                                                 this.player.frame = 5; }, this);
-		 
 		 }
-                 this.time.events.add(250, function(){this.game.stage.backgroundColor = 'black';}, this);
    },
 
   //find objects in a Tiled layer that containt a property called "type" equal to a certain value
@@ -195,17 +180,19 @@ BasicGame.Game.prototype = {
    win: function(player, collectable){
    if(!this.player.wins){
       //some of this should be moved into a playerDIes method. maybe there is a prototype for this?
+      this.player.body.velocity.x = 0;
+      this.player.alive = false;
       this.player.animations.stop();
       this.player.frame = 5;
       this.player.wins = !this.player.wins;
-      this.player.alive = false;
       this.score += 1000;
-   
+   }   
    this.scoreText.text = 'Score: ' + this.score;
    this.gameText.text = 'YOU WIN\nSCORE: ' + this.score;
    this.gameText.visible = true;
    this.time.events.add(2500, this.quitGame, this);
   }
+
 
     
 

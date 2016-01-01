@@ -31,7 +31,7 @@ BasicGame.Preloader.prototype = {
 		this.load.audio('coin', ['assets/audio/coin.mp3']);
 		//this.load.bitmapFont('caslon', 'fonts/caslon.png', 'fonts/caslon.xml');
 		//	+ lots of other required assets here
-		this.load.tilemap('level1', 'assets/tilemaps/level1.json', null, Phaser.Tilemap.TILED_JSON);
+		this.load.tilemap('level1', 'assets/tilemaps/level3.json', null, Phaser.Tilemap.TILED_JSON);
     		this.load.image('gameTiles', 'assets/images/sheet1.png');
     
     		this.load.spritesheet('player', 'assets/images/player.png', 46, 50, 28);
