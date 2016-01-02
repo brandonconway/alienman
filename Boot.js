@@ -1,7 +1,6 @@
 var BasicGame = {};
 
 BasicGame.Boot = function (game) {
-
 };
 
 BasicGame.Boot.prototype = {
