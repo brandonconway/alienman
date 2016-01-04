@@ -21,6 +21,7 @@ BasicGame.Game.prototype = {
      },
      create: function () {
 	    this.game.physics.startSystem(Phaser.Physics.ARCADE);
+            this.game.stage.backgroundColor = '#606060';
 	    this.map = this.game.add.tilemap('level'+this.level);
 	    this.map.addTilesetImage('sheet1', 'gameTiles');
 	    //collision on blockedLayer
@@ -53,7 +54,8 @@ BasicGame.Game.prototype = {
 
 	    //play music
 	    this.mainMusic.loop = true;
-	    //this.mainMusic.play();
+	    if(!this.mainMusic.isPlaying){
+	    this.mainMusic.play();}
 	   
       
             //add player
@@ -87,6 +89,10 @@ BasicGame.Game.prototype = {
         //  Stop music, delete sprites, purge caches, free resources, all that good stuff.
 
         //  Then let's go back to the main menu.
+	this.mainMusic.stop();
+        this.mainMusic = null;
+        this.player = null;
+        this.map = null; 
         this.state.start('MainMenu');
 
     },

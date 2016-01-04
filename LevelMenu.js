@@ -6,8 +6,9 @@ BasicGame.LevelMenu.prototype = {
 
 	create: function () {
 
-	this.style = { font: "bold 32px Arial", fill: "#fff", boundsAlignH: "center", boundsAlignV: "middle" };
-
+        this.background = this.add.sprite(0, 0, 'menuBackground');
+	this.background.scale.setTo(4, 2);
+	this.style = { font: "bold 32px Arial", fill: "#fff", boundsAlignH: "400", boundsAlignV: "middle" };
 	this.text = this.add.text(400, 40, "Choose a level", this.style);
 	this.level1 = this.add.button(400, 100, 'playButton', function(){this.startGame(1);}, this, 'buttonOver', 'buttonOut', 'buttonOver');
 	this.level1Text = this.add.text(this.level1.x + this.level1.width+10, this.level1.y, "Level 1", this.style);

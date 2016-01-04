@@ -25,10 +25,12 @@ BasicGame.Preloader.prototype = {
 		this.load.setPreloadSprite(this.preloadBar);
 
                 this.load.image('goldenCoin', 'assets/images/goldCoin.png');
+                this.load.image('menuBackground', 'assets/images/grass.jpeg');
                 this.load.image('door', 'assets/images/door.png');
 		this.load.image('playButton', 'assets/images/play_button.png');
 		this.load.audio('titleMusic', ['assets/audio/main_menu.mp3']);
 		this.load.audio('coin', ['assets/audio/coin.mp3']);
+		this.load.audio('shoot', ['assets/audio/shoot.mp3']);
 		//this.load.bitmapFont('caslon', 'fonts/caslon.png', 'fonts/caslon.xml');
 		//	+ lots of other required assets here
 		this.load.tilemap('level1', 'assets/tilemaps/level1.json', null, Phaser.Tilemap.TILED_JSON);
@@ -36,7 +38,8 @@ BasicGame.Preloader.prototype = {
 		this.load.tilemap('level3', 'assets/tilemaps/level3.json', null, Phaser.Tilemap.TILED_JSON);
     		this.load.image('gameTiles', 'assets/images/sheet1.png');
     
-    		this.load.spritesheet('player', 'assets/images/player.png', 46, 50, 28);
+    		//this.load.spritesheet('player', 'assets/images/player.png', 46, 50, 28);
+    		this.load.spritesheet('player', 'assets/images/alienman_spritesheet.png', 42.666, 64, 10);
 		
 		this.load.audio('mainMusic', ['assets/audio/main.mp3']);
 		this.load.audio('die', ['assets/audio/die.ogg']);
