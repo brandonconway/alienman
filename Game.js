@@ -46,8 +46,11 @@ BasicGame.Game.prototype = {
 
 	    //create objects 
             this.createCoins();
-            this.createDoor();
+ 	    this.createDoor();
 
+            //create enemies
+            this.createEnemies();
+	    
             //sounds
             this.coinSound = this.game.add.audio('coin');
             this.mainMusic = this.add.audio('mainMusic');
@@ -62,23 +65,26 @@ BasicGame.Game.prototype = {
 	    var player = new BasicGame.Player(this.game, 0, 0, 'player');
             this.player = this.game.add.existing(player);
 
+
 	    //lives
             this.livesText = this.add.text(this.camera.width - 100, 0, 'Lives: '+ this.player.lives, { font: '24px Arial', fill: '#fff' });
             this.livesText.fixedToCamera = true;;
 
-	
-    },
+
+	      },
 
     update: function () {
 
 
+	//physics
 	this.game.physics.arcade.collide(this.player, this.blockedLayer);
 	//die when touching lava or other death layer
 	//this would be better if these were background and objects
 	this.game.physics.arcade.collide(this.player, this.deathLayer, this.deathHandler, null, this)
+	this.game.physics.arcade.collide(this.player, this.enemies, this.deathHandler, null, this)
 	//pick up coins
         this.game.physics.arcade.overlap(this.player, this.coins, this.collect, null, this);
-	//pick up coins
+	//touch door
         this.game.physics.arcade.overlap(this.player, this.door, this.win, null, this);
 
     },
@@ -94,23 +100,21 @@ BasicGame.Game.prototype = {
         this.player = null;
         this.map = null; 
         this.state.start('MainMenu');
-
     },
 
     deathHandler: function(){
-                 this.player.die();
-		 if(this.player.lives == 0){
-		         this.mainMusic.stop();
-			 this.gameText.visible = true;
-			 this.time.events.add(1500, this.quitGame, this);
-		 }
-		 else {
-	            this.score = 0;
-		    this.livesText.text = 'Lives: '+ this.player.lives;
-		    this.scoreText.text = 'Score: '+ this.score;
-		 }
-   },
-
+	 this.player.die();
+	 if(this.player.lives == 0){
+		 this.mainMusic.stop();
+		 this.gameText.visible = true;
+		 this.time.events.add(1500, this.quitGame, this);
+	 }
+	 else {
+	    this.score = 0;
+	    this.livesText.text = 'Lives: '+ this.player.lives;
+	    this.scoreText.text = 'Score: '+ this.score;
+	 }
+   }, 
   //find objects in a Tiled layer that containt a property called "type" equal to a certain value
    findObjectsByType: function(type, map, layerName) {
       var result = new Array();
@@ -126,7 +130,7 @@ BasicGame.Game.prototype = {
     return result;
    },
 
-   //create a sprite from an object
+   //create a sprite from an object in TileMap object layer
    createFromTiledObject: function(element, group) {
     var sprite = group.create(element.x, element.y, element.properties.sprite);
       //copy all properties to the sprite
@@ -181,6 +185,18 @@ BasicGame.Game.prototype = {
    }
    else
       this.time.events.add(2500, this.quitGame, this);
+  },
+
+  createEnemies: function() {
+     this.enemies = this.game.add.group(); 
+     this.enemies.enableBody = true;
+     for(var i=0; i<10; i++){
+         this.enemies.add(
+	     new BasicGame.Enemy(this.game, 'enemy1', 
+		         {'moving': false,}
+			)
+	   );
+    }
   }
 
 
