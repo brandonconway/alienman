@@ -6,7 +6,7 @@ BasicGame.LevelMenu.prototype = {
 
 	create: function () {
 
-        this.background = this.add.sprite(0, 0, 'menuBackground');
+    this.background = this.add.sprite(0, 0, 'menuBackground');
 	this.background.scale.setTo(4, 2);
 	this.style = { font: "bold 32px Arial", fill: "#fff", boundsAlignH: "400", boundsAlignV: "middle" };
 	this.text = this.add.text(400, 40, "Choose a level", this.style);

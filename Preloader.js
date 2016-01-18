@@ -24,13 +24,14 @@ BasicGame.Preloader.prototype = {
 		this.load.setPreloadSprite(this.preloadBar);
 
 //Images
-                this.load.image('goldenCoin', 'assets/images/goldCoin.png');
-                this.load.image('menuBackground', 'assets/images/grass.jpeg');
-                this.load.image('door', 'assets/images/door.png');
+        this.load.image('goldenCoin', 'assets/images/goldCoin.png');
+        this.load.image('blast', 'assets/images/blast.png');
+        this.load.image('menuBackground', 'assets/images/grass.jpeg');
+        this.load.image('door', 'assets/images/door.png');
 		this.load.image('playButton', 'assets/images/play_button.png');
-    		this.load.image('gameTiles', 'assets/images/sheet1.png');
-    		this.load.image('enemy1', 'assets/images/enemy1.png');
-    		this.load.spritesheet('player', 'assets/images/alienman_spritesheet.png', 42.666, 64, 10);
+    	this.load.image('gameTiles', 'assets/images/sheet1.png');
+    	this.load.image('enemy1', 'assets/images/enemy1.png');
+    	this.load.spritesheet('player', 'assets/images/alienman_spritesheet.png', 42.666, 64, 10);
 
 //Audio
 		this.load.audio('titleMusic', ['assets/audio/main_menu.mp3']);
@@ -44,7 +45,7 @@ BasicGame.Preloader.prototype = {
 		this.load.tilemap('level1', 'assets/tilemaps/level1.json', null, Phaser.Tilemap.TILED_JSON);
 		this.load.tilemap('level2', 'assets/tilemaps/level2.json', null, Phaser.Tilemap.TILED_JSON);
 		this.load.tilemap('level3', 'assets/tilemaps/level3.json', null, Phaser.Tilemap.TILED_JSON);
-    
+
 	},
 
 	create: function () {
