@@ -57,7 +57,8 @@ BasicGame.Game.prototype = {
 	    //play music
 	    this.mainMusic.loop = true;
 	    if(!this.mainMusic.isPlaying){
-	    this.mainMusic.play();}
+	        this.mainMusic.play();
+        }
 
 
         //add player
@@ -70,13 +71,13 @@ BasicGame.Game.prototype = {
         this.livesText = this.add.text(this.camera.width - 100, 0, 'Lives: '+ this.player.lives, { font: '24px Arial', fill: '#fff' });
         this.livesText.fixedToCamera = true;;
 
-
-	      },
+	},
 
     update: function () {
 
         //Collisions
         this.game.physics.arcade.collide(this.player, this.blockedLayer);
+        this.game.physics.arcade.collide(this.enemies, this.blockedLayer);
         //die when touching lava or other death layer
         //this would be better if these were background and objects
         this.game.physics.arcade.collide(this.player, this.deathLayer, this.deathHandler, null, this)
@@ -131,13 +132,20 @@ BasicGame.Game.prototype = {
         return result;
     },
 
-    createFromTiledObject: function(element, group) {
+    createFromTiledObject: function(element, group, customObject, options ) {
         //create a sprite from an object in TileMap object layer
-
-        var sprite = group.create(element.x, element.y, element.properties.sprite);
+        if(customObject){
+            var sprite = group.add(
+                            new customObject(this.game, element.x, element.y,
+                                         element.properties.sprite, options)
+                        );
+        }
+        else {
+            var sprite = group.create(element.x, element.y, element.properties.sprite);
+        }
         //copy all properties to the sprite
         Object.keys(element.properties).forEach(function(key){
-        sprite[key] = element.properties[key];
+             sprite[key] = element.properties[key];
         });
     },
 
@@ -146,7 +154,7 @@ BasicGame.Game.prototype = {
         this.coins.enableBody = true;
         var result = this.findObjectsByType('coin', this.map, 'objectLayer');
         result.forEach(function(element){
-        this.createFromTiledObject(element, this.coins);
+            this.createFromTiledObject(element, this.coins);
         }, this);
     },
 
@@ -155,7 +163,16 @@ BasicGame.Game.prototype = {
         this.door.enableBody = true;
         var result = this.findObjectsByType('door', this.map, 'objectLayer');
         result.forEach(function(element){
-        this.createFromTiledObject(element, this.door);
+            this.createFromTiledObject(element, this.door);
+        }, this);
+    },
+
+    createEnemies: function() {
+        this.enemies = this.game.add.group();
+        this.enemies.enableBody = true;
+        var result = this.findObjectsByType('enemy1', this.map, 'objectLayer');
+        result.forEach(function(element){
+            this.createFromTiledObject(element, this.enemies, BasicGame.Enemy, {'moving':'false'});
         }, this);
     },
 
@@ -165,7 +182,6 @@ BasicGame.Game.prototype = {
         this.score += 10;
         this.scoreText.text = 'Score: ' + this.score;
     },
-
 
     win: function(player, collectable){
         if(!this.player.wins){
@@ -188,15 +204,6 @@ BasicGame.Game.prototype = {
             this.time.events.add(2500, this.quitGame, this);
     },
 
-    createEnemies: function() {
-        this.enemies = this.game.add.group();
-        this.enemies.enableBody = true;
-        for(var i=0; i<10; i++){
-            this.enemies.add(
-	            new BasicGame.Enemy(this.game, 'enemy1',{'moving': false,}
-	        ));
-        }
-    },
 
     hitEnemy: function(enemy, blast){
         enemy.kill();
