@@ -10,8 +10,7 @@ BasicGame.MainMenu = function (game) {
 BasicGame.MainMenu.prototype = {
 
 	create: function () {
-                console.log(this);
-                this.style = { font: "bold 32px Arial", fill: "black", boundsAlignH: "center", boundsAlignV: "middle" };
+        this.style = { font: "bold 32px Arial", fill: "black", boundsAlignH: "center", boundsAlignV: "middle" };
 		this.music = this.add.audio('titleMusic');
 		this.music.loop = true;
 		this.music.play();

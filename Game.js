@@ -49,6 +49,7 @@ BasicGame.Game.prototype = {
 
         //create enemies
         this.createEnemies();
+        this.createBumpers();
 
         //sounds
         this.coinSound = this.game.add.audio('coin');
@@ -83,6 +84,7 @@ BasicGame.Game.prototype = {
         this.game.physics.arcade.collide(this.player, this.deathLayer, this.deathHandler, null, this)
         this.game.physics.arcade.collide(this.player, this.enemies, this.deathHandler, null, this)
         this.game.physics.arcade.collide(this.enemies, this.blasts, this.hitEnemy, null, this)
+        this.game.physics.arcade.collide(this.enemies, this.bumpers);
 
         //Overlaps
 	    //pick up coins
@@ -132,9 +134,9 @@ BasicGame.Game.prototype = {
         return result;
     },
 
-    createFromTiledObject: function(element, group, customObject, options ) {
+    createFromTiledObject: function(element, group, customObject, options) {
         //create a sprite from an object in TileMap object layer
-        if(customObject){
+        if(customObject != undefined){
             var sprite = group.add(
                             new customObject(this.game, element.x, element.y,
                                          element.properties.sprite, options)
@@ -143,6 +145,7 @@ BasicGame.Game.prototype = {
         else {
             var sprite = group.create(element.x, element.y, element.properties.sprite);
         }
+        console.log(sprite)
         //copy all properties to the sprite
         Object.keys(element.properties).forEach(function(key){
              sprite[key] = element.properties[key];
@@ -173,6 +176,15 @@ BasicGame.Game.prototype = {
         var result = this.findObjectsByType('enemy1', this.map, 'objectLayer');
         result.forEach(function(element){
             this.createFromTiledObject(element, this.enemies, BasicGame.Enemy, {'moving':'false'});
+        }, this);
+    },
+
+    createBumpers: function() {
+        this.bumpers = this.game.add.group();
+        this.bumpers.enableBody = true;
+        var result = this.findObjectsByType('bumper', this.map, 'objectLayer');
+        result.forEach(function(element){
+            this.createFromTiledObject(element, this.bumpers, BasicGame.Bumper);
         }, this);
     },
 
@@ -213,3 +225,5 @@ BasicGame.Game.prototype = {
 
 
 };
+
+

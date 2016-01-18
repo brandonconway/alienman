@@ -16,7 +16,7 @@ BasicGame.Preloader.prototype = {
 		this.background.scale.setTo(4, 4);
 		this.preloadBar = this.add.sprite(400, 100, 'preloaderBar');
 
-                this.style = { font: "bold 32px Arial", fill: "#fff", boundsAlignH: "center", boundsAlignV: "middle" };
+        this.style = { font: "bold 32px Arial", fill: "#fff", boundsAlignH: "center", boundsAlignV: "middle" };
 		this.text = this.add.text(350, 100, "Loading...", this.style);
 		//	This sets the preloadBar sprite as a loader sprite.
 		//	What that does is automatically crop the sprite from 0 to full-width
@@ -30,7 +30,7 @@ BasicGame.Preloader.prototype = {
         this.load.image('door', 'assets/images/door.png');
 		this.load.image('playButton', 'assets/images/play_button.png');
     	this.load.image('gameTiles', 'assets/images/sheet1.png');
-    	this.load.image('enemy1', 'assets/images/enemy1.png');
+    	this.load.spritesheet('enemy1', 'assets/images/enemy1.png', 55, 64, 14);
     	this.load.spritesheet('player', 'assets/images/alienman_spritesheet.png', 42.666, 64, 10);
 
 //Audio

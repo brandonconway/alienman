@@ -16,7 +16,7 @@ BasicGame.LevelMenu.prototype = {
 	this.level2Text = this.add.text(this.level2.x + this.level2.width+10, this.level2.y, "Level 2", this.style);
 	this.level3 = this.add.button(400, 50+this.level2.y, 'playButton', function(){this.startGame(3);}, this, 'buttonOver', 'buttonOut', 'buttonOver');
 	this.level3Text = this.add.text(this.level3.x + this.level3.width+10, this.level3.y, "Level 3", this.style);
-        this.music = this.add.audio('titleMusic');
+    this.music = this.add.audio('titleMusic');
 	this.music.loop = true;
 	//this.music.play();
 
