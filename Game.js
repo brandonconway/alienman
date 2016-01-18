@@ -12,9 +12,21 @@ BasicGame.Game = function (game) {};
 
 BasicGame.Game.prototype = {
 
-     init: function (level) {
-	   this.level = level;
+     init: function (options) {
+	   this.level = options.level;
+       console.log(this.level)
        this.numLevels = 3;
+       if(options.lives != undefined){
+            this.lives = options.lives;
+        }
+       else
+           this.lives = 3;
+
+       if(options.score != undefined){
+	        this.score = options.score;
+       }
+       else
+           this.score = 0;
      },
      create: function () {
 
@@ -39,7 +51,6 @@ BasicGame.Game.prototype = {
         this.gameText.visible = false;
 
 	    //score
-	    this.score = 0;
         this.scoreText = this.add.text(10,0, 'Score: '+ this.score, { font: '24px Arial', fill: '#fff' });
         this.scoreText.fixedToCamera = true;;
 
@@ -65,7 +76,7 @@ BasicGame.Game.prototype = {
 
 
         //add player
-	    var player = new BasicGame.Player(this.game, 0, 0, 'player');
+	    var player = new BasicGame.Player(this.game, 0, 0, 'player', {'lives': this.lives});
         this.player = this.game.add.existing(player);
         this.blasts = this.player.blasts;
         this.game.player = this.player;
@@ -215,7 +226,11 @@ BasicGame.Game.prototype = {
         this.gameText.visible = true;
         var nextLevel = this.level + 1;
         if(nextLevel <= this.numLevels){
-            this.time.events.add(2500, this.state.start('Game', true, false, nextLevel), this);
+            options = {'level': nextLevel,
+                       'lives':this.player.lives,
+                       'score':this.score,
+                      }
+            this.time.events.add(2500, this.state.start('Game', true, false, options ), this);
         }
         else
             this.time.events.add(2500, this.quitGame, this);

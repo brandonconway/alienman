@@ -1,14 +1,18 @@
 var Phaser = Phaser || {};
 var BasicGame = BasicGame || {};
 
-BasicGame.Player = function(game, positionX, positionY, playerSprite) {
+BasicGame.Player = function(game, positionX, positionY, playerSprite, options) {
     "use strict";
     Phaser.Sprite.call(this, game, positionX, positionY, playerSprite);
     this.frame = 0;
     this.animations.add('right', [5, 6, 7, 8, 9, 8, 7], 10, true);
     this.animations.add('shoot', [3, 4,], 10, true);
     this.alive = true;
-    this.lives = 3;
+    if(options.lives != undefined){
+        this.lives = options.lives
+    }
+    else
+        this.lives = 3;
     this.wins = false;
     this.game.physics.arcade.enable(this);
     this.body.collideWorldBounds = true;
