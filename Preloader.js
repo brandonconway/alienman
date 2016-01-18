@@ -39,6 +39,7 @@ BasicGame.Preloader.prototype = {
 		this.load.audio('shoot', ['assets/audio/shoot.mp3']);
 		this.load.audio('mainMusic', ['assets/audio/main.mp3']);
 		this.load.audio('die', ['assets/audio/die.ogg']);
+		this.load.audio('enemyDie', ['assets/audio/enemy_die.mp3']);
 		this.load.audio('jump', ['assets/audio/jump.mp3']);
 
 //Tilemaps

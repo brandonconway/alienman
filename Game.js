@@ -54,6 +54,8 @@ BasicGame.Game.prototype = {
         //sounds
         this.coinSound = this.game.add.audio('coin');
         this.mainMusic = this.add.audio('mainMusic');
+        this.enemyDie = this.add.audio('enemyDie');
+        this.enemyDie.volume = 2.0;
 
 	    //play music
 	    this.mainMusic.loop = true;
@@ -203,8 +205,11 @@ BasicGame.Game.prototype = {
             this.player.animations.stop();
             this.player.frame = 5;
             this.player.wins = !this.player.wins;
+            this.mainMusic.stop();
+            this.mainMusic = null;
             this.score += 1000;
         }
+
         this.scoreText.text = 'Score: ' + this.score;
         this.gameText.text = 'YOU WIN\nSCORE: ' + this.score;
         this.gameText.visible = true;
@@ -218,6 +223,7 @@ BasicGame.Game.prototype = {
 
 
     hitEnemy: function(enemy, blast){
+	    this.enemyDie.play();
         enemy.kill();
         blast.kill()
         this.score += 50;
