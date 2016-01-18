@@ -66,6 +66,7 @@ BasicGame.Game.prototype = {
 	    var player = new BasicGame.Player(this.game, 0, 0, 'player');
         this.player = this.game.add.existing(player);
         this.blasts = this.player.blasts;
+        this.game.player = this.player;
 
 
 	    //lives
@@ -145,7 +146,6 @@ BasicGame.Game.prototype = {
         else {
             var sprite = group.create(element.x, element.y, element.properties.sprite);
         }
-        console.log(sprite)
         //copy all properties to the sprite
         Object.keys(element.properties).forEach(function(key){
              sprite[key] = element.properties[key];
@@ -220,6 +220,9 @@ BasicGame.Game.prototype = {
     hitEnemy: function(enemy, blast){
         enemy.kill();
         blast.kill()
+        this.score += 50;
+        this.scoreText.text = 'Score: ' + this.score;
+
 
     }
 
