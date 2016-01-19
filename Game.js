@@ -51,11 +51,11 @@ BasicGame.Game.prototype = {
 	    this.blockedLayer.resizeWorld();
 
 	    //Game/message text
-        this.gameText = this.add.text(this.camera.width / 2, this.camera.height / 2 - 100, 'GAME OVER!', { font: '32px Arial', fill: '#fff' });
+        this.gameText = this.add.text(this.camera.width / 2, this.camera.height / 2 - 100, 'Level '+this.level, { font: '32px Arial', fill: '#fff' });
         this.gameText.anchor.setTo(0.5, 0.5)
-        this.gameText.fixedToCamera = true;;
-        this.gameText.visible = false;
-
+        this.gameText.fixedToCamera = true;
+        this.gameText.visible = true;
+		this.time.events.add(2500, function(){this.gameText.visible = false;}, this);
 	    //score
         this.scoreText = this.add.text(10,0, 'Score: '+ this.score, { font: '24px Arial', fill: '#fff' });
         this.scoreText.fixedToCamera = true;;
@@ -133,11 +133,11 @@ BasicGame.Game.prototype = {
 	    this.player.die();
 	    if(this.player.lives == 0){
 		    this.mainMusic.stop();
+            this.gameText.text = 'Game Over';
 		    this.gameText.visible = true;
 		    this.time.events.add(1500, this.quitGame, this);
 	    }
 	    else {
-	        this.score = 0;
 	        this.livesText.text = 'Lives: '+ this.player.lives;
 	        this.scoreText.text = 'Score: '+ this.score;
 	    }
