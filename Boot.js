@@ -16,6 +16,7 @@ BasicGame.Boot.prototype = {
         if (this.game.device.desktop)
         {
             this.scale.setMinMax(960, 640, 960, 640);
+            this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
             //  If you have any desktop specific settings, they can go in here
             this.scale.pageAlignHorizontally = true;
         }

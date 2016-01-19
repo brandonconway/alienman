@@ -33,6 +33,7 @@ BasicGame.Game.prototype = {
        else{
            this.score = 0;
        }
+       this.game.scale.setGameSize(720, 480);
     },
 
      create: function () {
