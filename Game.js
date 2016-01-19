@@ -12,24 +12,30 @@ BasicGame.Game = function (game) {};
 
 BasicGame.Game.prototype = {
 
-     init: function (options) {
-	   this.level = options.level;
-       console.log(this.level)
+    init: function (options) {
        this.numLevels = 3;
+
+       if(options.level != undefined){
+	        this.level = options.level;
+       }
+       else {
+	        this.level = 1;
+       }
        if(options.lives != undefined){
             this.lives = options.lives;
-        }
-       else
+       }
+       else {
            this.lives = 3;
-
+       }
        if(options.score != undefined){
 	        this.score = options.score;
        }
-       else
+       else{
            this.score = 0;
-     },
-     create: function () {
+       }
+    },
 
+     create: function () {
 	    this.game.physics.startSystem(Phaser.Physics.ARCADE);
         this.game.stage.backgroundColor = '#606060';
 	    this.map = this.game.add.tilemap('level'+this.level);
@@ -107,6 +113,9 @@ BasicGame.Game.prototype = {
 	    //touch door
         this.game.physics.arcade.overlap(this.player, this.door, this.win, null, this);
 
+        if (this.player.top >= this.game.world.height) {
+            this.deathHandler();
+        }
     },
 
     quitGame: function (pointer) {

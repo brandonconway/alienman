@@ -27,14 +27,10 @@ BasicGame.Player = function(game, positionX, positionY, playerSprite, options) {
     this.jumpButton = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
     this.shootButton = this.game.input.keyboard.addKey(Phaser.Keyboard.Z);
     this.blastTime = 0;
-
     this.createBlasts();
 
     this.events.onOutOfBounds.add(function(){
-        this.alive = false;
-        this.die_sound.play();
-        this.player.frame = 2;
-        this.time.events.add(1500, this.quitGame, this);
+        BasicGame.Game.deathHandler();
     }, this);
 
 }
@@ -43,6 +39,7 @@ BasicGame.Player.prototype = Object.create(Phaser.Sprite.prototype);
 BasicGame.Player.prototype.constructor = BasicGame.Player;
 
 BasicGame.Player.prototype.update = function () {
+
 
     if(this.cursors.right.isDown && this.alive){
         this.scale.x = 1; //facing default direction
