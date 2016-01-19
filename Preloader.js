@@ -27,7 +27,8 @@ BasicGame.Preloader.prototype = {
         this.load.image('goldenCoin', 'assets/images/goldCoin.png');
         this.load.image('blast', 'assets/images/blast.png');
         this.load.image('diamond', 'assets/images/diamond.png');
-        this.load.image('menuBackground', 'assets/images/grass.jpeg');
+        this.load.image('menuBackground', 'assets/images/alien_man_splash.png');
+        this.load.image('levelMenuBackground', 'assets/images/alien_man_splash2.png');
         this.load.image('door', 'assets/images/door.png');
 		this.load.image('playButton', 'assets/images/play_button.png');
     	this.load.image('gameTiles', 'assets/images/sheet1.png');
