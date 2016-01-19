@@ -37,7 +37,7 @@ BasicGame.Game.prototype = {
 
      create: function () {
 	    this.game.physics.startSystem(Phaser.Physics.ARCADE);
-        this.game.stage.backgroundColor = '#606060';
+        this.game.stage.backgroundColor = '#6DCFF6';
 	    this.map = this.game.add.tilemap('level'+this.level);
 	    this.map.addTilesetImage('sheet1', 'gameTiles');
 
@@ -62,6 +62,7 @@ BasicGame.Game.prototype = {
 
 	    //create objects
         this.createCoins();
+        this.createDiamonds();
  	    this.createDoor();
 
         //create enemies
@@ -108,7 +109,7 @@ BasicGame.Game.prototype = {
 
         //Overlaps
 	    //pick up coins
-        this.game.physics.arcade.overlap(this.player, this.coins, this.collect, null, this);
+        this.game.physics.arcade.overlap(this.player, [this.coins, this.diamonds], this.collect, null, this);
 
 	    //touch door
         this.game.physics.arcade.overlap(this.player, this.door, this.win, null, this);
@@ -183,6 +184,15 @@ BasicGame.Game.prototype = {
         }, this);
     },
 
+    createDiamonds: function() {
+        this.diamonds = this.game.add.group();
+        this.diamonds.enableBody = true;
+        var result = this.findObjectsByType('diamond', this.map, 'objectLayer');
+        result.forEach(function(element){
+            this.createFromTiledObject(element, this.diamonds);
+        }, this);
+    },
+
     createDoor: function() {
         this.door = this.game.add.group();
         this.door.enableBody = true;
@@ -213,7 +223,13 @@ BasicGame.Game.prototype = {
     collect: function(player, collectable) {
         this.coinSound.play();
         collectable.destroy();
-        this.score += 10;
+        if(collectable.type == 'coin'){
+            this.score += 10;
+        }
+        else if(collectable.type == 'diamond'){
+            this.score += 50;
+
+        }
         this.scoreText.text = 'Score: ' + this.score;
     },
 
