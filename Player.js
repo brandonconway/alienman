@@ -40,50 +40,69 @@ BasicGame.Player.prototype.constructor = BasicGame.Player;
 
 BasicGame.Player.prototype.update = function () {
 
-
-    if(this.cursors.right.isDown && this.alive){
-        this.scale.x = 1; //facing default direction
-        this.body.velocity.x = 155;
-        if(this.body.onFloor()){
-            this.animations.play('right');
-        }
+    if(this.cursors.right.isDown){
+	this.move('right');
     }
-    if(this.cursors.left.isDown && this.alive){
-        this.scale.x = -1; //flip
-        this.body.velocity.x = -155;
-        if(this.body.onFloor()){
-            this.animations.play('right');
-        }
+    if(this.cursors.left.isDown){
+	this.move('left');
     }
 
-    if(this.jumpButton.isDown && this.body.onFloor() && this.alive){
-        this.animations.stop();
-        this.frame = 1;
-        this.body.velocity.y -= 500;
-        this.jump_sound.play();
+    if(this.jumpButton.isDown && this.body.onFloor()){
+	this.jump();
     }
 
-    else if(this.shootButton.isDown && this.alive){
-        this.animations.play('shoot');
-        if(!this.shoot_sound.isPlaying){
-            this.shoot_sound.play();
-        }
+    else if(this.shootButton.isDown){
         this.fireBlast();
     }
+
     else if (this.cursors.down.isDown && this.body.onFloor() && this.alive){
-        this.body.velocity.x = 0;
-        this.animations.stop();
-        this.frame = 2;
+	this.move('stop');
     }
 
     else if(!this.cursors.left.isDown && !this.cursors.right.isDown && this.alive && this.body.onFloor()){
-        this.body.velocity.x = 0;
-        this.animations.stop();
-        this.frame = 0;
-
+	this.move('down');
     }
 }
 
+
+BasicGame.Player.prototype.move = function (direction) {
+	if (this.alive){
+		if (direction == 'right') {
+			this.scale.x = 1; //facing default direction
+			this.body.velocity.x = 155;
+			if(this.body.onFloor()){
+				this.animations.play('right');
+			}
+		}
+		else if (direction == 'left') {
+			this.scale.x = -1; //flip
+			this.body.velocity.x = -155;
+			if(this.body.onFloor()){
+				this.animations.play('right');
+			}
+		}	
+		else if (direction == 'stop') {
+			this.body.velocity.x = 0;
+			this.animations.stop();
+			this.frame = 2;
+		}
+		else if (direction == 'down') {
+			this.body.velocity.x = 0;
+			this.animations.stop();
+			this.frame = 0;
+		}
+		
+	}
+}
+
+BasicGame.Player.prototype.jump = function () {
+	if (this.alive){
+		this.animations.stop();
+		this.frame = 1;
+		this.body.velocity.y -= 500;
+		this.jump_sound.play();
+	}
+}
 
 BasicGame.Player.prototype.die = function() {
     if(this.alive){
@@ -118,15 +137,21 @@ BasicGame.Player.prototype.createBlasts = function(){
 }
 
 BasicGame.Player.prototype.fireBlast = function(game) {
-    if(this.game.time.now > this.blastTime){
-        blast = this.blasts.getFirstExists(false);
-        if (blast){
-            //  And fire it
-            blast.reset(this.x, (this.y-this.height/2));
-            blast.body.velocity.x = this.scale.x*400;
-            this.blastTime = this.game.time.now + 500;
-        }
-    }
+    if (this.alive){
+	    this.animations.play('shoot');
+	    if(!this.shoot_sound.isPlaying){
+		this.shoot_sound.play();
+	    }
 
+	    if(this.game.time.now > this.blastTime){
+		blast = this.blasts.getFirstExists(false);
+		if (blast){
+		    //  And fire it
+		    blast.reset(this.x, (this.y-this.height/2));
+		    blast.body.velocity.x = this.scale.x*400;
+		    this.blastTime = this.game.time.now + 500;
+		}
+	    }
+    }
 }
 
