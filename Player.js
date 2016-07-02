@@ -129,9 +129,10 @@ BasicGame.Player.prototype.createBlasts = function(){
         this.blasts.enableBody = true;
         this.blasts.physicsBodyType = Phaser.Physics.ARCADE;
         this.blasts.createMultiple(30, 'blast')
-        this.blasts.setAll('outOfBoundsKill', true);
 
         this.blasts.setAll('checkWorldBounds', true);
+        this.blasts.setAll('outOfBoundsKill', true);
+
         this.blasts.setAll('anchor.x', 0.5);
         this.blasts.setAll('anchor.y', 0.5);
 }
