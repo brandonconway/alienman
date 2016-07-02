@@ -51,7 +51,7 @@ BasicGame.Player.prototype.update = function () {
 	    this.jump();
     }
 
-    else if (this.shootButton.isDown){
+    if (this.shootButton.isDown){
         this.fireBlast();
     }
 
