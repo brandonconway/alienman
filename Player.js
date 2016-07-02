@@ -40,27 +40,27 @@ BasicGame.Player.prototype.constructor = BasicGame.Player;
 
 BasicGame.Player.prototype.update = function () {
 
-    if(this.cursors.right.isDown){
-	this.move('right');
+    if (this.cursors.right.isDown){
+	   this.move('right');
     }
-    if(this.cursors.left.isDown){
-	this.move('left');
-    }
-
-    if(this.jumpButton.isDown && this.body.onFloor()){
-	this.jump();
+    if (this.cursors.left.isDown){
+	   this.move('left');
     }
 
-    else if(this.shootButton.isDown){
+    if (this.jumpButton.isDown){
+	    this.jump();
+    }
+
+    else if (this.shootButton.isDown){
         this.fireBlast();
     }
 
     else if (this.cursors.down.isDown && this.body.onFloor() && this.alive){
-	this.move('stop');
+	    this.move('stop');
     }
 
-    else if(!this.cursors.left.isDown && !this.cursors.right.isDown && this.alive && this.body.onFloor()){
-	this.move('down');
+    else if (!this.cursors.left.isDown && !this.cursors.right.isDown && this.alive && this.body.onFloor()){
+	    this.move('down');
     }
 }
 
@@ -80,7 +80,7 @@ BasicGame.Player.prototype.move = function (direction) {
 			if(this.body.onFloor()){
 				this.animations.play('right');
 			}
-		}	
+		}
 		else if (direction == 'stop') {
 			this.body.velocity.x = 0;
 			this.animations.stop();
@@ -91,12 +91,12 @@ BasicGame.Player.prototype.move = function (direction) {
 			this.animations.stop();
 			this.frame = 0;
 		}
-		
+
 	}
 }
 
 BasicGame.Player.prototype.jump = function () {
-	if (this.alive){
+	if (this.alive && this.body.onFloor()){
 		this.animations.stop();
 		this.frame = 1;
 		this.body.velocity.y -= 500;
