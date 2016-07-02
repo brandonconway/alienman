@@ -99,7 +99,7 @@ create: function () {
     this.livesText = this.add.text(this.camera.width - 100, 0, 'Lives: '+ this.player.lives, { font: '24px Arial', fill: '#fff' });
     this.livesText.fixedToCamera = true;;
 
-    this.initGameController();
+    this.game.controller = this.initGameController();
 },
 
 
@@ -292,59 +292,66 @@ hitEnemy: function(enemy, blast){
 
 
 initGameController: function() {
+
+
     if (!('ontouchstart' in window)) return;
+
         var that = this;
-        GameController.init( {
-            left: {
-                type: 'joystick',
-                joystick: {
-                    touchEnd: function () {
-                        that.player.cursors.left.isDown = false;
-                        that.player.cursors.right.isDown = false;
-                        //snap back to middle
-                        this.currentX = this.x;
-                        this.currentY = this.y;
-                    },
-                    touchMove: function( details ) {
-                        if ( details.normalizedX > 0 ) {
-                            that.player.cursors.right.isDown = true;
+
+        if (!(this.game.controller )) {
+            GameController.init( {
+                left: {
+                    type: 'joystick',
+                    joystick: {
+                        touchEnd: function () {
                             that.player.cursors.left.isDown = false;
-                        }
-                        else if ( details.normalizedX < 0 ) {
-                            that.player.cursors.left.isDown = true;
                             that.player.cursors.right.isDown = false;
+                            //snap back to middle
+                            this.currentX = this.x;
+                            this.currentY = this.y;
+                        },
+                        touchMove: function( details ) {
+                            if ( details.normalizedX > 0 ) {
+                                that.player.cursors.right.isDown = true;
+                                that.player.cursors.left.isDown = false;
+                            }
+                            else if ( details.normalizedX < 0 ) {
+                                that.player.cursors.left.isDown = true;
+                                that.player.cursors.right.isDown = false;
+                            }
                         }
                     }
-                }
 
-            },
-            right: {
-                position: {
-                    right: '25%',
-                    top: '75%'
                 },
-                type: 'buttons',
-                buttons: [
-                    {
-                        label: 'jump',
-                        fontSize: 13,
-                        touchStart: function() {
-                            that.player.jump();// do something
-                        }
+                right: {
+                    position: {
+                        right: '25%',
+                        top: '75%'
                     },
-                    {
-                        label: 'blast',
-                        fontSize: 13,
-                        touchStart: function() {
-                            that.player.fireBlast();// do something
-                        }
-                    },
-                    false,
-                    false,
-                    false
-                ]
-            }
-        } );
+                    type: 'buttons',
+                    buttons: [
+                        {
+                            label: 'jump',
+                            fontSize: 13,
+                            touchStart: function() {
+                                that.player.jump();// do something
+                            }
+                        },
+                        {
+                            label: 'blast',
+                            fontSize: 13,
+                            touchStart: function() {
+                                that.player.fireBlast();// do something
+                            }
+                        },
+                        false,
+                        false,
+                        false
+                    ]
+                }
+            } );
+            return true;
+        }
     }
 };
 
