@@ -271,8 +271,8 @@ win: function(player, collectable){
                    'lives':this.player.lives,
                    'score':this.score,
         }
-        this.time.events.add(2500, 
-                            this.state.start('Game', true, false, options ), 
+        this.time.events.add(2500,
+                            this.state.start('Game', true, false, options ),
                             this);
     }
     else
@@ -293,7 +293,7 @@ hitEnemy: function(enemy, blast){
 
 initGameController: function() {
     if (!('ontouchstart' in window)) return;
-        var that = this;     
+        var that = this;
         GameController.init( {
             left: {
                 type: 'joystick',
@@ -303,6 +303,7 @@ initGameController: function() {
                         that.player.cursors.right.isDown = false;
                         //snap back to middle
                         this.currentX = this.x;
+                        this.currentY = this.y;
                     },
                     touchMove: function( details ) {
                         if ( details.normalizedX > 0 ) {
@@ -325,15 +326,15 @@ initGameController: function() {
                 type: 'buttons',
                 buttons: [
                     {
-                        label: 'jump', 
-                        fontSize: 13, 
+                        label: 'jump',
+                        fontSize: 13,
                         touchStart: function() {
                             that.player.jump();// do something
                         }
                     },
                     {
-                        label: 'blast', 
-                        fontSize: 13, 
+                        label: 'blast',
+                        fontSize: 13,
                         touchStart: function() {
                             that.player.fireBlast();// do something
                         }
