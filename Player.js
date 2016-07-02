@@ -141,18 +141,18 @@ BasicGame.Player.prototype.fireBlast = function(game) {
     if (this.alive){
 	    this.animations.play('shoot');
 	    if(!this.shoot_sound.isPlaying){
-		this.shoot_sound.play();
+		    this.shoot_sound.play();
 	    }
 
 	    if(this.game.time.now > this.blastTime){
-		blast = this.blasts.getFirstExists(false);
-		if (blast){
-		    //  And fire it
-		    blast.reset(this.x, (this.y-this.height/2));
-		    blast.body.velocity.x = this.scale.x*400;
-		    this.blastTime = this.game.time.now + 500;
-		}
+		    var blast = this.blasts.getFirstExists(false);
+		    if (blast){
+                //  And fire it
+                blast.reset(this.x, (this.y-this.height/2));
+                blast.body.velocity.x = this.scale.x*400;
+                this.blastTime = this.game.time.now + 500;
+                blast.lifespan = 1200;
+		    }
 	    }
     }
 }
-
