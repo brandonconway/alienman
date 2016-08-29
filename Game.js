@@ -94,7 +94,6 @@ create: function () {
     this.blasts = this.player.blasts;
     this.game.player = this.player;
 
-
     //lives
     this.livesText = this.add.text(this.camera.width - 100, 0, 'Lives: '+ this.player.lives, { font: '24px Arial', fill: '#fff' });
     this.livesText.fixedToCamera = true;;
@@ -296,11 +295,12 @@ initGameController: function() {
 
         if (!(this.game.controller )) {
             GameController.init( {
+                forcePerformanceFriendly: true,    
                 left: {
                     type: 'joystick',
                     joystick: {
                         position: {
-                            top: '80%',
+                            bottom: '15%',
                             right: '10%',
                         },
                         touchEnd: function () {
