@@ -118,7 +118,6 @@ update: function () {
     //Overlaps
     //pick up coins
     this.game.physics.arcade.overlap(this.player, [this.coins, this.diamonds], this.collect, null, this);
-
     //touch door
     this.game.physics.arcade.overlap(this.player, this.door, this.win, null, this);
 
@@ -281,18 +280,15 @@ win: function(player, collectable){
 
 
 hitEnemy: function(enemy, blast){
-                  this.enemyDie.play();
-                  enemy.kill();
-                  blast.kill()
-                          this.score += 50;
-                  this.scoreText.text = 'Score: ' + this.score;
-
-
-          },
+    this.enemyDie.play();
+    enemy.kill();
+    blast.kill()
+    this.score += 50;
+    this.scoreText.text = 'Score: ' + this.score;
+},
 
 
 initGameController: function() {
-
 
     if (!('ontouchstart' in window)) return;
 
@@ -303,6 +299,10 @@ initGameController: function() {
                 left: {
                     type: 'joystick',
                     joystick: {
+                        position: {
+                            top: '80%',
+                            right: '10%',
+                        },
                         touchEnd: function () {
                             that.player.cursors.left.isDown = false;
                             that.player.cursors.right.isDown = false;
@@ -326,7 +326,7 @@ initGameController: function() {
                 right: {
                     position: {
                         right: '25%',
-                        top: '75%'
+                        top: '70%'
                     },
                     type: 'buttons',
                     buttons: [

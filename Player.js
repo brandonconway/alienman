@@ -2,6 +2,7 @@ var Phaser = Phaser || {};
 var BasicGame = BasicGame || {};
 
 BasicGame.Player = function(game, positionX, positionY, playerSprite, options) {
+
     "use strict";
     Phaser.Sprite.call(this, game, positionX, positionY, playerSprite);
     this.frame = 0;
@@ -13,25 +14,24 @@ BasicGame.Player = function(game, positionX, positionY, playerSprite, options) {
     }
     else
         this.lives = 3;
-    this.wins = false;
-    this.game.physics.arcade.enable(this);
-    this.body.collideWorldBounds = true;
-    this.body.gravity.y = 1000;
-    this.anchor.setTo(.5, 1); //so it flips around its middle
-    this.game.camera.follow(this);
+        this.wins = false;
+        this.game.physics.arcade.enable(this);
+        this.body.collideWorldBounds = true;
+        this.body.gravity.y = 1000;
+        this.anchor.setTo(.5, 1); //so it flips around its middle
+        this.game.camera.follow(this);
 
-    this.jump_sound = this.game.add.audio('jump');
-    this.die_sound = this.game.add.audio('die');
-    this.shoot_sound = this.game.add.audio('shoot');
-    this.cursors = this.game.input.keyboard.createCursorKeys();
-    this.jumpButton = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
-    this.shootButton = this.game.input.keyboard.addKey(Phaser.Keyboard.Z);
-    this.blastTime = 0;
-    this.createBlasts();
+        this.jump_sound = this.game.add.audio('jump');
+        this.die_sound = this.game.add.audio('die');
+        this.shoot_sound = this.game.add.audio('shoot');
+        this.cursors = this.game.input.keyboard.createCursorKeys();
+        this.jumpButton = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+        this.shootButton = this.game.input.keyboard.addKey(Phaser.Keyboard.Z);
+        this.blastTime = 0;
+        this.createBlasts();
 
-    this.events.onOutOfBounds.add(function(){
-        BasicGame.Game.deathHandler();
-    }, this);
+        this.events.onOutOfBounds.add(function(){
+            BasicGame.Game.deathHandler()}, this);
 
 }
 
@@ -41,41 +41,38 @@ BasicGame.Player.prototype.constructor = BasicGame.Player;
 BasicGame.Player.prototype.update = function () {
 
     if (this.cursors.right.isDown){
-	   this.move('right');
+	     this.move('right');
     }
     if (this.cursors.left.isDown){
-	   this.move('left');
+	     this.move('left');
     }
-
     if (this.jumpButton.isDown){
-	    this.jump();
+	      this.jump();
     }
-
     if (this.shootButton.isDown){
         this.fireBlast();
     }
-
     else if (this.cursors.down.isDown && this.body.onFloor() && this.alive){
 	    this.move('stop');
     }
-
     else if (!this.cursors.left.isDown && !this.cursors.right.isDown && this.alive && this.body.onFloor()){
 	    this.move('down');
     }
+
 }
 
 
 BasicGame.Player.prototype.move = function (direction) {
 	if (this.alive){
 		if (direction == 'right') {
-			this.scale.x = 1; //facing default direction
-			this.body.velocity.x = 155;
-			if(this.body.onFloor()){
-				this.animations.play('right');
-			}
+			  this.scale.x = 1; //facing default direction
+			  this.body.velocity.x = 155;
+			  if(this.body.onFloor()){
+				    this.animations.play('right');
+			  }
 		}
 		else if (direction == 'left') {
-			this.scale.x = -1; //flip
+		    this.scale.x = -1; //flip
 			this.body.velocity.x = -155;
 			if(this.body.onFloor()){
 				this.animations.play('right');
@@ -104,6 +101,7 @@ BasicGame.Player.prototype.jump = function () {
 	}
 }
 
+
 BasicGame.Player.prototype.die = function() {
     if(this.alive){
         this.die_sound.play();
@@ -118,11 +116,10 @@ BasicGame.Player.prototype.die = function() {
         this.game.time.events.add(800, function(){
             this.alive = true;
             this.reset(pos, 0);
-            this.frame = 0; },
-                this);
-
+            this.frame = 0; }, this);
     }
 }
+
 
 BasicGame.Player.prototype.createBlasts = function(){
         this.blasts = this.game.add.group();
@@ -136,6 +133,7 @@ BasicGame.Player.prototype.createBlasts = function(){
         this.blasts.setAll('anchor.x', 0.5);
         this.blasts.setAll('anchor.y', 0.5);
 }
+
 
 BasicGame.Player.prototype.fireBlast = function(game) {
     if (this.alive){
