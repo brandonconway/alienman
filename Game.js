@@ -35,8 +35,7 @@ init: function (options) {
     else{
         this.score = 0;
     }
-
-    this.game.scale.setGameSize(720, 480);
+    this.game.scale.setGameSize(this.game.width * 0.7, this.game.height * 0.7);
 },
 
 
@@ -93,6 +92,7 @@ create: function () {
     this.player = this.game.add.existing(player);
     this.blasts = this.player.blasts;
     this.game.player = this.player;
+
 
     //lives
     this.livesText = this.add.text(this.camera.width - 100, 0, 'Lives: '+ this.player.lives, { font: '24px Arial', fill: '#fff' });
@@ -295,12 +295,11 @@ initGameController: function() {
 
         if (!(this.game.controller )) {
             GameController.init( {
-                forcePerformanceFriendly: true,    
                 left: {
                     type: 'joystick',
                     joystick: {
                         position: {
-                            bottom: '15%',
+                            top: '80%',
                             right: '10%',
                         },
                         touchEnd: function () {
