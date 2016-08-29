@@ -4,7 +4,9 @@ BasicGame.Boot = function (game) {};
 BasicGame.Boot.prototype = {
 
     init: function () {
+        this.scale.setMinMax(240, 160, 960, 640);
         this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+        this.scale.pageAlignHorizontally = true;
     },
 
     preload: function () {
