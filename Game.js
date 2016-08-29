@@ -296,12 +296,12 @@ initGameController: function() {
         if (!(this.game.controller )) {
             GameController.init( {
                 left: {
+                    position: {
+                        bottom: '28%',
+                        right: '10%',
+                    },
                     type: 'joystick',
                     joystick: {
-                        position: {
-                            top: '80%',
-                            right: '10%',
-                        },
                         touchEnd: function () {
                             that.player.cursors.left.isDown = false;
                             that.player.cursors.right.isDown = false;
@@ -324,8 +324,8 @@ initGameController: function() {
                 },
                 right: {
                     position: {
-                        right: '25%',
-                        top: '70%'
+                        right: '20%',
+                        bottom: '35%'
                     },
                     type: 'buttons',
                     buttons: [
@@ -342,6 +342,9 @@ initGameController: function() {
                         {
                             label: 'blast',
                             fontSize: 13,
+                            offset: {
+                                x: '5%'
+                            },
                             touchStart: function() {
                                 that.player.shootButton.isDown = true;
                             },
