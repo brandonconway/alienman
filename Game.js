@@ -334,14 +334,20 @@ initGameController: function() {
                             label: 'jump',
                             fontSize: 13,
                             touchStart: function() {
-                                that.player.jump();// do something
+                                that.player.jumpButton.isDown = true;
+                            },
+                            touchEnd: function() {
+                                that.player.jumpButton.isDown = false;
                             }
                         },
                         {
                             label: 'blast',
                             fontSize: 13,
                             touchStart: function() {
-                                that.player.fireBlast();// do something
+                                that.player.shootButton.isDown = true;
+                            },
+                            touchEnd: function() {
+                                that.player.shootButton.isDown = false;
                             }
                         },
                         false,
@@ -354,5 +360,3 @@ initGameController: function() {
         }
     }
 };
-
-
