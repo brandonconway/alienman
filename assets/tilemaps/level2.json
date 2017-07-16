@@ -24,7 +24,6 @@
         }, 
         {
          "draworder":"topdown",
-         "height":0,
          "name":"objectLayer",
          "objects":[
                 {
@@ -36,6 +35,11 @@
                     {
                      "sprite":"goldenCoin",
                      "type":"coin"
+                    },
+                 "propertytypes":
+                    {
+                     "sprite":"string",
+                     "type":"string"
                     },
                  "rotation":0,
                  "type":"",
@@ -54,6 +58,11 @@
                      "sprite":"goldenCoin",
                      "type":"coin"
                     },
+                 "propertytypes":
+                    {
+                     "sprite":"string",
+                     "type":"string"
+                    },
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -70,6 +79,11 @@
                     {
                      "sprite":"goldenCoin",
                      "type":"coin"
+                    },
+                 "propertytypes":
+                    {
+                     "sprite":"string",
+                     "type":"string"
                     },
                  "rotation":0,
                  "type":"",
@@ -88,6 +102,11 @@
                      "sprite":"goldenCoin",
                      "type":"coin"
                     },
+                 "propertytypes":
+                    {
+                     "sprite":"string",
+                     "type":"string"
+                    },
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -104,6 +123,11 @@
                     {
                      "sprite":"goldenCoin",
                      "type":"coin"
+                    },
+                 "propertytypes":
+                    {
+                     "sprite":"string",
+                     "type":"string"
                     },
                  "rotation":0,
                  "type":"",
@@ -122,6 +146,11 @@
                      "sprite":"goldenCoin",
                      "type":"coin"
                     },
+                 "propertytypes":
+                    {
+                     "sprite":"string",
+                     "type":"string"
+                    },
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -138,6 +167,11 @@
                     {
                      "sprite":"goldenCoin",
                      "type":"coin"
+                    },
+                 "propertytypes":
+                    {
+                     "sprite":"string",
+                     "type":"string"
                     },
                  "rotation":0,
                  "type":"",
@@ -156,6 +190,11 @@
                      "sprite":"goldenCoin",
                      "type":"coin"
                     },
+                 "propertytypes":
+                    {
+                     "sprite":"string",
+                     "type":"string"
+                    },
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -172,6 +211,11 @@
                     {
                      "sprite":"goldenCoin",
                      "type":"coin"
+                    },
+                 "propertytypes":
+                    {
+                     "sprite":"string",
+                     "type":"string"
                     },
                  "rotation":0,
                  "type":"",
@@ -190,6 +234,11 @@
                      "sprite":"goldenCoin",
                      "type":"coin"
                     },
+                 "propertytypes":
+                    {
+                     "sprite":"string",
+                     "type":"string"
+                    },
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -206,6 +255,11 @@
                     {
                      "sprite":"goldenCoin",
                      "type":"coin"
+                    },
+                 "propertytypes":
+                    {
+                     "sprite":"string",
+                     "type":"string"
                     },
                  "rotation":0,
                  "type":"",
@@ -224,6 +278,11 @@
                      "sprite":"goldenCoin",
                      "type":"coin"
                     },
+                 "propertytypes":
+                    {
+                     "sprite":"string",
+                     "type":"string"
+                    },
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -240,6 +299,11 @@
                     {
                      "sprite":"goldenCoin",
                      "type":"coin"
+                    },
+                 "propertytypes":
+                    {
+                     "sprite":"string",
+                     "type":"string"
                     },
                  "rotation":0,
                  "type":"",
@@ -258,6 +322,11 @@
                      "sprite":"goldenCoin",
                      "type":"coin"
                     },
+                 "propertytypes":
+                    {
+                     "sprite":"string",
+                     "type":"string"
+                    },
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -274,6 +343,11 @@
                     {
                      "sprite":"door",
                      "type":"door"
+                    },
+                 "propertytypes":
+                    {
+                     "sprite":"string",
+                     "type":"string"
                     },
                  "rotation":0,
                  "type":"",
@@ -292,6 +366,11 @@
                      "sprite":"goldenCoin",
                      "type":"coin"
                     },
+                 "propertytypes":
+                    {
+                     "sprite":"string",
+                     "type":"string"
+                    },
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -308,6 +387,11 @@
                     {
                      "sprite":"goldenCoin",
                      "type":"coin"
+                    },
+                 "propertytypes":
+                    {
+                     "sprite":"string",
+                     "type":"string"
                     },
                  "rotation":0,
                  "type":"",
@@ -326,6 +410,11 @@
                      "sprite":"goldenCoin",
                      "type":"coin"
                     },
+                 "propertytypes":
+                    {
+                     "sprite":"string",
+                     "type":"string"
+                    },
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -342,6 +431,11 @@
                     {
                      "sprite":"goldenCoin",
                      "type":"coin"
+                    },
+                 "propertytypes":
+                    {
+                     "sprite":"string",
+                     "type":"string"
                     },
                  "rotation":0,
                  "type":"",
@@ -360,6 +454,11 @@
                      "sprite":"goldenCoin",
                      "type":"coin"
                     },
+                 "propertytypes":
+                    {
+                     "sprite":"string",
+                     "type":"string"
+                    },
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -376,6 +475,11 @@
                     {
                      "sprite":"goldenCoin",
                      "type":"coin"
+                    },
+                 "propertytypes":
+                    {
+                     "sprite":"string",
+                     "type":"string"
                     },
                  "rotation":0,
                  "type":"",
@@ -394,6 +498,11 @@
                      "sprite":"goldenCoin",
                      "type":"coin"
                     },
+                 "propertytypes":
+                    {
+                     "sprite":"string",
+                     "type":"string"
+                    },
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -410,6 +519,11 @@
                     {
                      "sprite":"goldenCoin",
                      "type":"coin"
+                    },
+                 "propertytypes":
+                    {
+                     "sprite":"string",
+                     "type":"string"
                     },
                  "rotation":0,
                  "type":"",
@@ -428,6 +542,11 @@
                      "sprite":"goldenCoin",
                      "type":"coin"
                     },
+                 "propertytypes":
+                    {
+                     "sprite":"string",
+                     "type":"string"
+                    },
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -444,6 +563,11 @@
                     {
                      "sprite":"goldenCoin",
                      "type":"coin"
+                    },
+                 "propertytypes":
+                    {
+                     "sprite":"string",
+                     "type":"string"
                     },
                  "rotation":0,
                  "type":"",
@@ -462,6 +586,11 @@
                      "sprite":"goldenCoin",
                      "type":"coin"
                     },
+                 "propertytypes":
+                    {
+                     "sprite":"string",
+                     "type":"string"
+                    },
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -478,6 +607,11 @@
                     {
                      "sprite":"goldenCoin",
                      "type":"coin"
+                    },
+                 "propertytypes":
+                    {
+                     "sprite":"string",
+                     "type":"string"
                     },
                  "rotation":0,
                  "type":"",
@@ -496,6 +630,11 @@
                      "sprite":"enemy1",
                      "type":"enemy1"
                     },
+                 "propertytypes":
+                    {
+                     "sprite":"string",
+                     "type":"string"
+                    },
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -512,6 +651,11 @@
                     {
                      "sprite":"enemy1",
                      "type":"enemy1"
+                    },
+                 "propertytypes":
+                    {
+                     "sprite":"string",
+                     "type":"string"
                     },
                  "rotation":0,
                  "type":"",
@@ -530,6 +674,11 @@
                      "sprite":"enemy1",
                      "type":"enemy1"
                     },
+                 "propertytypes":
+                    {
+                     "sprite":"string",
+                     "type":"string"
+                    },
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -546,6 +695,11 @@
                     {
                      "sprite":"enemy1",
                      "type":"enemy1"
+                    },
+                 "propertytypes":
+                    {
+                     "sprite":"string",
+                     "type":"string"
                     },
                  "rotation":0,
                  "type":"",
@@ -564,6 +718,11 @@
                      "sprite":"enemy1",
                      "type":"enemy1"
                     },
+                 "propertytypes":
+                    {
+                     "sprite":"string",
+                     "type":"string"
+                    },
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -580,6 +739,11 @@
                     {
                      "sprite":"",
                      "type":"bumper"
+                    },
+                 "propertytypes":
+                    {
+                     "sprite":"string",
+                     "type":"string"
                     },
                  "rotation":0,
                  "type":"",
@@ -598,6 +762,11 @@
                      "sprite":"",
                      "type":"bumper"
                     },
+                 "propertytypes":
+                    {
+                     "sprite":"string",
+                     "type":"string"
+                    },
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -614,6 +783,11 @@
                     {
                      "sprite":"",
                      "type":"bumper"
+                    },
+                 "propertytypes":
+                    {
+                     "sprite":"string",
+                     "type":"string"
                     },
                  "rotation":0,
                  "type":"",
@@ -632,6 +806,11 @@
                      "sprite":"",
                      "type":"bumper"
                     },
+                 "propertytypes":
+                    {
+                     "sprite":"string",
+                     "type":"string"
+                    },
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -648,6 +827,11 @@
                     {
                      "sprite":"",
                      "type":"bumper"
+                    },
+                 "propertytypes":
+                    {
+                     "sprite":"string",
+                     "type":"string"
                     },
                  "rotation":0,
                  "type":"",
@@ -666,6 +850,11 @@
                      "sprite":"",
                      "type":"bumper"
                     },
+                 "propertytypes":
+                    {
+                     "sprite":"string",
+                     "type":"string"
+                    },
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -682,6 +871,11 @@
                     {
                      "sprite":"",
                      "type":"bumper"
+                    },
+                 "propertytypes":
+                    {
+                     "sprite":"string",
+                     "type":"string"
                     },
                  "rotation":0,
                  "type":"",
@@ -700,6 +894,11 @@
                      "sprite":"",
                      "type":"bumper"
                     },
+                 "propertytypes":
+                    {
+                     "sprite":"string",
+                     "type":"string"
+                    },
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -716,6 +915,11 @@
                     {
                      "sprite":"",
                      "type":"bumper"
+                    },
+                 "propertytypes":
+                    {
+                     "sprite":"string",
+                     "type":"string"
                     },
                  "rotation":0,
                  "type":"",
@@ -734,6 +938,11 @@
                      "sprite":"enemy1",
                      "type":"enemy1"
                     },
+                 "propertytypes":
+                    {
+                     "sprite":"string",
+                     "type":"string"
+                    },
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -750,6 +959,11 @@
                     {
                      "sprite":"",
                      "type":"bumper"
+                    },
+                 "propertytypes":
+                    {
+                     "sprite":"string",
+                     "type":"string"
                     },
                  "rotation":0,
                  "type":"",
@@ -768,6 +982,11 @@
                      "sprite":"goldenCoin",
                      "type":"coin"
                     },
+                 "propertytypes":
+                    {
+                     "sprite":"string",
+                     "type":"string"
+                    },
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -784,6 +1003,11 @@
                     {
                      "sprite":"goldenCoin",
                      "type":"coin"
+                    },
+                 "propertytypes":
+                    {
+                     "sprite":"string",
+                     "type":"string"
                     },
                  "rotation":0,
                  "type":"",
@@ -802,6 +1026,11 @@
                      "sprite":"goldenCoin",
                      "type":"coin"
                     },
+                 "propertytypes":
+                    {
+                     "sprite":"string",
+                     "type":"string"
+                    },
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -818,6 +1047,11 @@
                     {
                      "sprite":"",
                      "type":"bumper"
+                    },
+                 "propertytypes":
+                    {
+                     "sprite":"string",
+                     "type":"string"
                     },
                  "rotation":0,
                  "type":"",
@@ -836,6 +1070,11 @@
                      "sprite":"enemy1",
                      "type":"enemy1"
                     },
+                 "propertytypes":
+                    {
+                     "sprite":"string",
+                     "type":"string"
+                    },
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -853,6 +1092,11 @@
                      "sprite":"diamond",
                      "type":"diamond"
                     },
+                 "propertytypes":
+                    {
+                     "sprite":"string",
+                     "type":"string"
+                    },
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -863,43 +1107,33 @@
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
-         "width":0,
          "x":0,
          "y":0
         }],
  "nextobjectid":105,
  "orientation":"orthogonal",
- "properties":
-    {
-
-    },
  "renderorder":"right-down",
+ "tiledversion":"1.0.2",
  "tileheight":32,
  "tilesets":[
         {
+         "columns":8,
          "firstgid":1,
-         "image":"..\/code\/games\/new_game\/assets\/images\/sheet1.png",
+         "image":"..\/code\/games\/alienman\/assets\/images\/sheet1.png",
          "imageheight":256,
          "imagewidth":256,
          "margin":0,
          "name":"sheet1",
-         "properties":
-            {
-
-            },
          "spacing":0,
          "tilecount":64,
          "tileheight":32,
          "tilewidth":32
         }, 
         {
+         "columns":0,
          "firstgid":65,
          "margin":0,
          "name":"coins",
-         "properties":
-            {
-
-            },
          "spacing":0,
          "tilecount":4,
          "tileheight":337,
@@ -907,37 +1141,33 @@
             {
              "0":
                 {
-                 "image":"..\/code\/games\/phaser-sidescroller\/assets\/images\/goldCoin.png"
+                 "image":"..\/code\/games\/alienman\/assets\/images\/goldCoin.png",
+                 "imageheight":24,
+                 "imagewidth":24
                 },
              "1":
                 {
-                 "image":"..\/Downloads\/fire-307336_640.png"
+                 "image":"..\/code\/games\/alienman\/assets\/images\/blast.png",
+                 "imageheight":15,
+                 "imagewidth":16
                 },
              "2":
                 {
-                 "image":"..\/code\/games\/alien_man\/assets\/images\/enemy1.png"
+                 "image":"..\/code\/games\/alienman\/assets\/images\/enemy1.png",
+                 "imageheight":64,
+                 "imagewidth":770
                 },
              "3":
                 {
-                 "image":"..\/code\/games\/alien_man\/assets\/images\/diamand.png"
+                 "image":"..\/code\/games\/alienman\/assets\/images\/diamond.png",
+                 "imageheight":32,
+                 "imagewidth":38
                 }
             },
          "tilewidth":770
-        }, 
-        {
-         "firstgid":69,
-         "margin":0,
-         "name":"enemy",
-         "properties":
-            {
-
-            },
-         "spacing":0,
-         "tilecount":0,
-         "tileheight":1,
-         "tilewidth":1
         }],
  "tilewidth":32,
+ "type":"map",
  "version":1,
  "width":100
 }
