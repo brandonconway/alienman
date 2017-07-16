@@ -17,7 +17,7 @@ BasicGame.Player = function(game, positionX, positionY, playerSprite, options) {
         this.wins = false;
         this.game.physics.arcade.enable(this);
         this.body.collideWorldBounds = true;
-        this.body.gravity.y = 1000;
+        this.body.gravity.y = 1850;
         this.anchor.setTo(.5, 1); //so it flips around its middle
         this.game.camera.follow(this);
 
@@ -66,14 +66,14 @@ BasicGame.Player.prototype.move = function (direction) {
 	if (this.alive){
 		if (direction == 'right') {
 			  this.scale.x = 1; //facing default direction
-			  this.body.velocity.x = 155;
+			  this.body.velocity.x = 200;
 			  if(this.body.onFloor()){
 				    this.animations.play('right');
 			  }
 		}
 		else if (direction == 'left') {
 		    this.scale.x = -1; //flip
-			this.body.velocity.x = -155;
+			this.body.velocity.x = -200;
 			if(this.body.onFloor()){
 				this.animations.play('right');
 			}
@@ -96,7 +96,7 @@ BasicGame.Player.prototype.jump = function () {
 	if (this.alive && this.body.onFloor()){
 		this.animations.stop();
 		this.frame = 1;
-		this.body.velocity.y -= 500;
+		this.body.velocity.y -= 750;
 		this.jump_sound.play();
 	}
 }
