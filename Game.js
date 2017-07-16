@@ -35,7 +35,10 @@ init: function (options) {
     else{
         this.score = 0;
     }
-    this.game.scale.setGameSize(this.game.width * 0.7, this.game.height * 0.7);
+    if (!this.game.scaled) {
+        this.game.scale.setGameSize(this.game.width * 0.7, this.game.height * 0.7);
+        this.game.scaled = true;
+    }
 },
 
 
@@ -48,10 +51,11 @@ create: function () {
 
     //collision on blockedLayer
     this.blockedLayer = this.map.createLayer('platformLayer');
-    this.map.setCollisionBetween(1, 15000, true, 'platformLayer');
+    this.map.setCollisionBetween(1, 2000, true, 'platformLayer');
     this.game.physics.arcade.checkCollision.down = false;
     this.deathLayer = this.map.createLayer('deathLayer');
-    this.map.setCollisionBetween(1, 15000, true, 'deathLayer');
+    this.map.setCollisionBetween(1, 2000, true, 'deathLayer');
+
     //resizes the game world to match the layer dimensions
     this.blockedLayer.resizeWorld();
 
