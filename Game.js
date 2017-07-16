@@ -51,12 +51,15 @@ create: function () {
 
     //collision on blockedLayer
     this.blockedLayer = this.map.createLayer('platformLayer');
-    this.map.setCollisionBetween(1, 2000, true, 'platformLayer');
+    this.map.setCollisionBetween(1, 2500, true, 'platformLayer');
     this.game.physics.arcade.checkCollision.down = false;
     this.deathLayer = this.map.createLayer('deathLayer');
-    this.map.setCollisionBetween(1, 2000, true, 'deathLayer');
+    this.map.setCollisionBetween(1, 2500, true, 'deathLayer');
 
+    this.game.add.sprite(0, 0, 'level'+this.level+'_image');
     //resizes the game world to match the layer dimensions
+    this.blockedLayer.visible = false;
+    this.deathLayer.visible = false;
     this.blockedLayer.resizeWorld();
 
     //Game/message text

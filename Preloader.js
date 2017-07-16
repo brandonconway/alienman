@@ -48,6 +48,9 @@ BasicGame.Preloader.prototype = {
 		this.load.tilemap('level1', 'assets/tilemaps/level1.json', null, Phaser.Tilemap.TILED_JSON);
 		this.load.tilemap('level2', 'assets/tilemaps/level2.json', null, Phaser.Tilemap.TILED_JSON);
 		this.load.tilemap('level3', 'assets/tilemaps/level3.json', null, Phaser.Tilemap.TILED_JSON);
+		this.load.image('level1_image', 'assets/tilemaps/level1.png');
+		this.load.image('level2_image', 'assets/tilemaps/level2.png');
+		this.load.image('level3_image', 'assets/tilemaps/level3.png');
 
 	},
 
